@@ -1,0 +1,11 @@
+flask
+spacy
+scikit-learn
+pdfminer.six
+pandas
+pdfplumber
+PyMuPDF
+clean-text
+keybert
+sentence-transformers
+torch

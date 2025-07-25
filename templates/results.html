@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ResuMatch Pro - Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #181a1b;
+            color: #f1f1f1;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .container {
+            background: #23272a;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.7);
+            padding: 40px 32px 32px 32px;
+            max-width: 700px;
+            width: 100%;
+            margin: 32px 0;
+        }
+        h1 {
+            color: #61dafb;
+            font-size: 2rem;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0 10px 0;
+            background: #2c2f33;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 14px 12px;
+            text-align: left;
+        }
+        th {
+            background: #23272a;
+            color: #61dafb;
+            font-size: 1.05rem;
+            border-bottom: 2px solid #61dafb;
+        }
+        tr {
+            border-bottom: 1px solid #333;
+        }
+        tr:last-child {
+            border-bottom: none;
+        }
+        td {
+            color: #f1f1f1;
+            font-size: 1rem;
+        }
+        .btn {
+            background: linear-gradient(90deg, #61dafb 0%, #4285f4 100%);
+            color: #181a1b;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 18px 10px 0 0;
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn:hover {
+            background: linear-gradient(90deg, #4285f4 0%, #61dafb 100%);
+            color: #fff;
+        }
+        @media (max-width: 700px) {
+            .container { padding: 20px 8px; }
+            h1 { font-size: 1.2rem; }
+            th, td { padding: 8px 4px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ResuMatch Pro - Ranking Results</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Filename</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for file, score, rank in results %}
+                <tr>
+                    <td>{{ rank }}</td>
+                    <td>{{ file }}</td>
+                    <td>{{ score }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn" href="/download?report={{ report }}">Download Full Report (CSV)</a>
+        <a class="btn" href="/">Analyze More</a>
+    </div>
+</body>
+</html>

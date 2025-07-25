@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ResuMatch Pro - AI Resume Comparator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #181a1b;
+            color: #f1f1f1;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: #23272a;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.7);
+            padding: 40px 32px 32px 32px;
+            max-width: 480px;
+            width: 100%;
+            margin: 32px 0;
+        }
+        h1 {
+            color: #61dafb;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        h2 {
+            color: #b3b3b3;
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 24px;
+        }
+        .form-group {
+            margin-bottom: 22px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #e0e0e0;
+            font-weight: 500;
+        }
+        textarea, input[type="file"] {
+            width: 100%;
+            border-radius: 8px;
+            border: none;
+            padding: 12px;
+            font-size: 1rem;
+            background: #2c2f33;
+            color: #f1f1f1;
+            margin-bottom: 4px;
+        }
+        textarea:focus, input[type="file"]:focus {
+            outline: 2px solid #61dafb;
+        }
+        .btn {
+            background: linear-gradient(90deg, #61dafb 0%, #4285f4 100%);
+            color: #181a1b;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            margin-top: 8px;
+        }
+        .btn:hover {
+            background: linear-gradient(90deg, #4285f4 0%, #61dafb 100%);
+            color: #fff;
+        }
+        .note {
+            color: #b3b3b3;
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 20px 8px; }
+            h1 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ResuMatch Pro</h1>
+        <h2>AI-Powered Resume Comparator & Ranker</h2>
+        <form method="POST" action="/rank" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="job_description">Job Description:</label>
+                <textarea name="job_description" id="job_description" required placeholder="Paste the job description here..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="resumes">Upload Resumes (PDF, multiple allowed):</label>
+                <input type="file" name="resumes" id="resumes" multiple accept=".pdf" required>
+                <div class="note">You can select and compare multiple PDF resumes at once.</div>
+            </div>
+            <button type="submit" class="btn">Compare & Rank Resumes</button>
+        </form>
+    </div>
+</body>
+</html>
